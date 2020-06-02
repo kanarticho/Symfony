@@ -1,0 +1,21 @@
+@import "~bootstrap/scss/bootstrap";
+
+:root {
+    --primary: #617553;
+    --background: #ecffe0;
+    --main-dark:  #262a24 ;
+    --secondary:  #d7e7cc ;
+
+}
+
+
+$background : var(--background);
+$mainColor : var (--primary);
+
+body {
+    background-color:$background;
+}
+
+.navbar {
+
+}
