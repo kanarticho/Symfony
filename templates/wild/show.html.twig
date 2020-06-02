@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+    <h1>{% if slug is same as ('1') %}Aucune série n'a été sélectionnée, veuillez choisir une série. {% else%} {{ slug}} {% endif %}</h1>
+
+{% endblock %}
+{% block javascript %}{% endblock %}
