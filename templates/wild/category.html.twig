@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Wild séries - {{ category.name}} {% endblock %}
+
+{% block body %}
+        <h1>Toutes les séries {{ category.name }} :</h1>
+        {% for program in programs %}
+            <div>
+                <h2>{{ program.id }} - {{ program.title }}</h2>
+                <p>{{ program.summary }}</p>
+            </div>
+
+        {% endfor %}
+        <a href="{{ path('app_index') }}">
+            Retour à l'accueil
+        </a>
+    </div>
+{% endblock %}
