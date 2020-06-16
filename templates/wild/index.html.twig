@@ -1,20 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}All programs{% endblock %}
+
+{% block title %}Wild Séries{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries de la table program : </h1>
+    <h1 class="text-center my-5 font-weight-bold">Toutes les séries</h1>
+    <div class="row justify-content-lg-around ">
     {% for program in programs %}
-        <div>
-            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
-            <p>{{ program.summary }}</p>
+        <div class="card-deck mb-5 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ program.poster }}" alt="{{ program.title }} poster">
+                <div class="card-body">
+                    <h5 class="card-title">{{ loop.index }} - {{ program.title }}</h5>
+                    <h6 class="card-title"> Catégorie : {{ program.category.name }}</h6>
+                    <p class="card-text">{{ program.summary }}</p>
+                    <div class="d-flex justify-content-around">
+                        <a href="{{ path('wild_show', {'slug' : program.title | lower | replace({' ':'-'})}) }}" class="btn btn-primary">En savoir plus</a>
+                        <a href="{{ path('wild_show_program', {'slug' : program.title | lower | replace({' ':'-'})}) }}" class="btn btn-primary">Voir les saisons</a>
+
+                    </div>
+                </div>
+            </div>
         </div>
     {% else %}
+        </div>
         Aucune série trouvée.
     {% endfor %}
-    <a href="{{ path('app_index') }}">
-        Retour à l'accueil
-    </a>
+
 
     <a href="{{ path('wild_show', { 'slug': "walking-dead" }) }}">
         Testing show() method from WildController with a real program s slug.

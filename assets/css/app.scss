@@ -1,4 +1,6 @@
-@import "~bootstrap/scss/bootstrap";
+$theme-colors: (
+        primary: #617553
+);
 
 :root {
     --primary: #617553;
@@ -17,3 +19,4 @@ body {
 }
 
 
+@import "~bootstrap/scss/bootstrap";

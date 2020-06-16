@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Programmes{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <h1 class="text-center font-weight-bold">{{ program.title }}</h1>
+        <div class="text-center">
+        <img src="{{ program.poster }}">*
+        </div>
+        <p class="my-3">{{ program.summary }}</p>
+        <h2 class="text-center font-weight-bold">Toutes les saisons de {{ program.title }}</h2>
+        <p></p>
+        {% for season in program.seasons %}
+            <div>
+
+                    <h3 class="my-3">Saison {{ season.number}} de {{ program.title  }} ({{ season.year }})</h3>
+                    <p>{{ season.description }}</p>
+                <a href="{{ path('wild_show_season', { 'id': season.id }) }}">Voir la liste des épisodes</a>
+
+            </div>
+        {% else %}
+            Aucune saison trouvée.
+        {% endfor %}
+        <a href="{{ path('app_index') }}">
+            Retour à l'accueil
+        </a>
+    </div>
+{% endblock %}
