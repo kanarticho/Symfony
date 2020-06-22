@@ -9,11 +9,11 @@
                 {{ season.program.title }}
             </a>
         </h1>
-        {% for episode in season.episodes %}
+        {% for episode in episodes %}
             <div class="mt-5">
                 <h2>{{ episode.title }}</h2>
                 <p>{{ episode.synopsis }}</p>
-
+                <a href="{{ path('wild_episode', {'id' : episode.id}) }}">détail de l'épisode</a>
             </div>
         {% else %}
             Aucun épisode trouvé.
